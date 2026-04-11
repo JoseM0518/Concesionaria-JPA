@@ -107,8 +107,6 @@ Conexiones
 
 Lectura
 
-+40% cache
-
 Robustez
 
 Try-catch todos CRUD
