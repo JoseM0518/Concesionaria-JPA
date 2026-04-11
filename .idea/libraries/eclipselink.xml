@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="eclipselink">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/eclipselink-4.0.8.v20250923-f4449e70fd/eclipselink/jlib/eclipselink.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/eclipselink-4.0.8.v20250923-f4449e70fd/eclipselink/jlib/jpa/jakarta.persistence-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
