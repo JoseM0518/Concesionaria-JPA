@@ -26,6 +26,8 @@ JPA Cache
 
 Se implementa cache de segundo nivel para mejorar rendimiento en lecturas repetidas
 
+Las credenciales expuestas son de un entorno de desarrollo local.
+
 GUI profesional
 
 Swing + Validaciones
