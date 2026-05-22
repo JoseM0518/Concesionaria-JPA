@@ -45,7 +45,7 @@ public class ConsultaAutomovil extends JFrame {
                 if (tblAutos.getRowCount() > 0) {
                     if (tblAutos.getSelectedRow() != -1) {
 
-                        long idAuto = Long.parseLong(String.valueOf(tblAutos.getValueAt(tblAutos.getSelectedRow(), 0)));
+                        Long idAuto = Long.parseLong(String.valueOf(tblAutos.getValueAt(tblAutos.getSelectedRow(), 0)));
                         control.borrarAutos(idAuto);
                         Mensaje.mostrar("Auto borrado correctamente", "Info", "Borrado exitoso");
                         cargarTabla();
@@ -66,7 +66,7 @@ public class ConsultaAutomovil extends JFrame {
                 if (tblAutos.getRowCount() > 0) {
                     if (tblAutos.getSelectedRow() != -1) {
 
-                        long idAuto = Long.parseLong(String.valueOf(tblAutos.getValueAt(tblAutos.getSelectedRow(), 0)));
+                        Long idAuto = Long.parseLong(String.valueOf(tblAutos.getValueAt(tblAutos.getSelectedRow(), 0)));
                         ModifAuto modif = new ModifAuto(idAuto);
                         modif.setVisible(true);
                         ConsultaAutomovil.this.dispose();
@@ -98,7 +98,8 @@ public class ConsultaAutomovil extends JFrame {
         if (listaAutomoviles != null) {
 
             for (Automovil auto : listaAutomoviles) {
-                Object[] objeto = {auto.getId(), auto.getModelo(), auto.getMarca(), auto.getMotor(),
+                String nombreMarca = (auto.getMarca() != null) ? auto.getMarca().getNombre() : "Sin Marca";
+                Object[] objeto = {auto.getId(), auto.getModelo(), nombreMarca, auto.getMotor(),
                         auto.getColor(), auto.getPlaca(), auto.getCantPuertas()};
 
                 modeloTabla.addRow(objeto);

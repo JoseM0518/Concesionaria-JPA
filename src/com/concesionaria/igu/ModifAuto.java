@@ -21,7 +21,7 @@ public class ModifAuto extends JFrame  {
     private JButton btnModificar;
     private JButton btnLimpiar;
 
-    public ModifAuto(long idAuto) {
+    public ModifAuto(Long idAuto) {
 
         setTitle("Panel modificar");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -36,14 +36,14 @@ public class ModifAuto extends JFrame  {
 
 
                 String modelo = txtModelo.getText();
-                String marca = txtMarca.getText();
+                String nombreMarca = txtMarca.getText();
                 String motor = txtMotor.getText();
                 String color = txtColor.getText();
                 String placa = txtPlaca.getText();
 
                 try {
                     int cantPuertas = Integer.parseInt(txtCantPuertas.getText());
-                    control.modificarAuto(auto, modelo, marca, motor, color, placa, cantPuertas);
+                    control.modificarAuto(auto, modelo, nombreMarca, motor, color, placa, cantPuertas);
 
 
                     Mensaje.mostrar("Guardado con éxito", "Info", "Edición Exitosa");
@@ -74,11 +74,11 @@ public class ModifAuto extends JFrame  {
         });
     }
 
-    private void cargarDatosAuto(long idAuto) {
+    private void cargarDatosAuto(Long idAuto) {
 
         auto = control.traerAuto(idAuto);
         txtModelo.setText(auto.getModelo());
-        txtMarca.setText(auto.getMarca());
+        txtMarca.setText(auto.getMarca().getNombre());
         txtMotor.setText(auto.getMotor());
         txtColor.setText(auto.getColor());
         txtPlaca.setText(auto.getPlaca());

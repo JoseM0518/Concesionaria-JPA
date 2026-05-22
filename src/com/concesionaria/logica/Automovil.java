@@ -1,9 +1,7 @@
 package com.concesionaria.logica;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 
 @Entity
@@ -11,9 +9,12 @@ public class Automovil implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String modelo;
-    private String marca;
+
+    @ManyToOne
+    @JoinColumn(name = "id_marca")
+    private Marca marca;
     private String motor;
     private String color;
     private String placa;
@@ -22,7 +23,16 @@ public class Automovil implements Serializable {
     public Automovil() {
     }
 
-    public Automovil(int id, String modelo, String marca, String motor, String color, String placa, int cantPuertas) {
+    public Automovil(String modelo, Marca marca, String motor, String color, String placa, int cantPuertas) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.motor = motor;
+        this.color = color;
+        this.placa = placa;
+        this.cantPuertas = cantPuertas;
+    }
+
+    public Automovil(Long id, String modelo,    Marca marca, String motor, String color, String placa, int cantPuertas) {
         this.id = id;
         this.modelo = modelo;
         this.marca = marca;
@@ -32,11 +42,11 @@ public class Automovil implements Serializable {
         this.cantPuertas = cantPuertas;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,11 +58,11 @@ public class Automovil implements Serializable {
         this.modelo = modelo;
     }
 
-    public String getMarca() {
+    public Marca getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
+    public void setMarca(Marca marca) {
         this.marca = marca;
     }
 

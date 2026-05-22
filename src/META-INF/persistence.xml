@@ -8,27 +8,25 @@
     <persistence-unit name="AutoPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>com.concesionaria.logica.Automovil</class>
+        <class>com.concesionaria.logica.Marca</class> <properties>
+        <property name="jakarta.persistence.jdbc.url"
+                  value="jdbc:mysql://localhost:3306/automovil?serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
+        <property name="jakarta.persistence.jdbc.user" value="root"/>
+        <property name="jakarta.persistence.jdbc.password" value="root"/>
+        <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 
-        <properties>
+        <property name="eclipselink.connection-pool.default.max" value="20"/>
+        <property name="eclipselink.connection-pool.default.min" value="4"/>
+        <property name="eclipselink.connection-pool.default.initial" value="1"/>
+        <property name="eclipselink.cache.shared.default" value="true"/>
 
-            <property name="jakarta.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/automovil?serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
-            <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value="root"/>
-            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="eclipselink.logging.level.sql" value="FINE"/>
+        <property name="eclipselink.logging.parameters" value="true"/>
 
-            <property name="eclipselink.connection-pool.default.max" value="20"/>
-            <property name="eclipselink.connection-pool.default.min" value="4"/>
-            <property name="eclipselink.connection-pool.default.initial" value="1"/>
-            <property name="eclipselink.cache.shared.default" value="true"/>
+        <property name="eclipselink.ddl-generation" value="create-tables"/>
+        <property name="eclipselink.weaving" value="static"/>
 
-            <property name="eclipselink.logging.level.sql" value="FINE"/>
-            <property name="eclipselink.logging.parameters" value="true"/>
-            <property name="eclipselink.ddl-generation" value="create-tables"/>
-            <property name="eclipselink.weaving" value="static"/>
-
-
-            <property name="jakarta.persistence.validation.mode" value="AUTO"/>
-        </properties>
+        <property name="jakarta.persistence.validation.mode" value="AUTO"/>
+    </properties>
     </persistence-unit>
 </persistence>
